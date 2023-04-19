@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Header from "@/components/Header";
-import AddItemForm from "@/components/AddItemForm";
 
 // @ts-ignore
 export default function Layout({ children }): JSX.Element {
