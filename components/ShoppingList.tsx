@@ -7,9 +7,14 @@ export default function ShoppingList(): JSX.Element {
 
   return (
     <div>
-      {shoppingList.map((item) => (
+      {shoppingList.map((item, index) => (
         <div key={item.id}>
-          <ListItem description={item.description} quantity={item.quantity} />
+          <ListItem
+            indexId={index}
+            description={item.description}
+            quantity={item.quantity}
+            purchased={item.purchased}
+          />
         </div>
       ))}
     </div>
