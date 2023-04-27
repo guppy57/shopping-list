@@ -18,7 +18,7 @@ export default function Header(): JSX.Element {
         />
       </Link>
       <h1 className="text-4xl font-bold text-green-800">
-        Guppy's Shopping List
+        Guppy&apos;s Shopping List
       </h1>
     </div>
   );
