@@ -43,9 +43,11 @@ describe("Footer - Dumb Component", () => {
     const recievedLinks = [];
 
     links.forEach((link) => {
-      const title = link.title;
+      const title = link.textContent;
       const href = link.href;
       recievedLinks.push({ title, href });
     });
+
+    expect(recievedLinks).toEqual(expectedLinks);
   });
 });
