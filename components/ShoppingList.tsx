@@ -6,7 +6,7 @@ export default function ShoppingList(): JSX.Element {
   const [shoppingList] = useAtom(shoppingListStore);
 
   return (
-    <div>
+    <div data-testid={"items-holder"}>
       {shoppingList.map((item, index) => (
         <ListItem
           key={item.id}
