@@ -20,6 +20,8 @@ describe("List Item - Dumb Component", () => {
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
   });
 
+  it("should fail from incorrect prop types", () => {});
+
   it("should render props correctly", () => {
     render(<ListItem
       indexId={exampleListItem.id}
@@ -30,4 +32,6 @@ describe("List Item - Dumb Component", () => {
     expect(screen.getByText(exampleListItem.description)).toBeInTheDocument();
     expect(screen.getByText(exampleListItem.quantity)).toBeInTheDocument();
   });
+
+  it("should handle checkbox click correctly", () => {});
 });
