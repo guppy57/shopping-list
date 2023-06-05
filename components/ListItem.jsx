@@ -1,24 +1,10 @@
-import { useAtom } from "jotai";
-import shoppingListAtom from "../stores/shoppingList.store";
-
 export default function ListItem({
   indexId,
   description,
   quantity,
   purchased,
+  handleCheckbox,
 }) {
-  const [shoppingList, setShoppingList] = useAtom(shoppingListAtom);
-  const handleCheckbox = (e) => {
-    const checked = e.target.checked;
-    const newList = shoppingList.map((item, index) => {
-      if (index === indexId) {
-        item.purchased = checked;
-      }
-      return item;
-    });
-    setShoppingList(newList);
-  };
-
   return (
     <div
       className={
@@ -53,7 +39,7 @@ export default function ListItem({
           type="checkbox"
           className="h-4 w-4 rounded border-gray-300 text-green-600 hover:cursor-pointer"
           checked={purchased}
-          onChange={handleCheckbox}
+          onChange={(e) => handleCheckbox(e, indexId)}
         />
       </div>
     </div>
