@@ -1,29 +1,10 @@
 import React from "react";
-import { useAtom } from "jotai";
-import shoppingListStore from "../stores/shoppingList.store";
-import generateId from "../lib/generateId";
 
-export default function AddItemForm(): JSX.Element {
-  const [shoppingList, setShoppingList] = useAtom(shoppingListStore);
+export default function AddItemForm({
+  addNewItem
+}) {
   const [description, setDescription] = React.useState("");
   const [quantity, setQuantity] = React.useState(1);
-
-  const addNewItem = (event: React.FormEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    if (description === "") {
-      return;
-    }
-
-    const newItem = {
-      id: generateId(15),
-      description,
-      quantity: parseInt(quantity.toString()),
-      purchased: false,
-    };
-
-    setShoppingList([...shoppingList, newItem]);
-  };
 
   return (
     <div className={"mt-4 sticky"}>
@@ -62,7 +43,7 @@ export default function AddItemForm(): JSX.Element {
               "bg-green-500 hover:bg-green-400 text-white font-medium py-1.5 px-4 rounded ml-2 shadow-md"
             }
             type={"button"}
-            onClick={addNewItem}
+            onClick={() => addNewItem(description, quantity)}
           >
             Add item
           </button>
