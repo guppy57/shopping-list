@@ -3,9 +3,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AddItemForm from "../components/AddItemForm";
 import ShoppingList from "../components/ShoppingList";
-import {useAtom} from "jotai/index";
-import shoppingListStore from "@/stores/shoppingList.store";
-import generateId from "@/lib/generateId";
+import { useAtom } from "jotai";
+import shoppingListStore from "../stores/shoppingList.store";
+import generateId from "../lib/generateId";
 
 export default function Home(): JSX.Element {
   const [shoppingList, setShoppingList] = useAtom(shoppingListStore);
