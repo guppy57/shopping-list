@@ -1,10 +1,8 @@
-import React from "react";
+import { useState } from "react";
 
-export default function AddItemForm({
-  addNewItem
-}) {
-  const [description, setDescription] = React.useState("");
-  const [quantity, setQuantity] = React.useState(1);
+export default function AddItemForm({ addNewItem }) {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className={"mt-4 sticky"}>
