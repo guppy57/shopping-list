@@ -9,7 +9,7 @@ const exampleListItem = {
   purchased: false,
 };
 
-const handleTestCheckbox = (event, indexId) => {
+const handleTestCheckbox = (event) => {
   exampleListItem.purchased = event.target.checked;
 };
 
