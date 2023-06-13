@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Footer from "../../components/Footer";
+import { act } from "react-test-renderer";
 
 describe("Footer - Dumb Component", () => {
   it("should have correct title text", () => {
@@ -49,5 +50,28 @@ describe("Footer - Dumb Component", () => {
     });
 
     expect(recievedLinks).toEqual(expectedLinks);
+  });
+
+  it("should have the button", () => {
+    render(<Footer/>);
+    const button = screen.getByRole("button");
+    expect(button).toBeInTheDocument();
+  });
+
+  it("should have the correct button title", () => {
+    render(<Footer/>);
+    const button = screen.getByText("Click me");
+    expect(button).toBeInTheDocument();
+  });
+
+  it("should have the correct title after click", () => {
+    render(<Footer/>);
+    const title = screen.getByTestId("footer-title");
+    expect(title.textContent).toBe("My Shopping List");
+    const button = screen.getByText("Click me");
+    act(() => {
+      button.click();
+    });
+    expect(title.textContent).toBe("Rules suck");
   });
 });
